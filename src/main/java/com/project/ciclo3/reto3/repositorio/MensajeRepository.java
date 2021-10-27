@@ -1,6 +1,7 @@
 package com.project.ciclo3.reto3.repositorio;
 
 
+import com.project.ciclo3.reto3.modelo.Client;
 import com.project.ciclo3.reto3.modelo.Message;
 import com.project.ciclo3.reto3.repositorio.crud.MensajeCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,4 +29,11 @@ public class MensajeRepository {
         return mensajeCrudRepository.save(mensaje);
     }
 
+    public Message actualizarCategory(Message message){
+        return  mensajeCrudRepository.save(message);
+    }
+
+    public void delete(Message message){
+        mensajeCrudRepository.delete(message);
+    }
 }

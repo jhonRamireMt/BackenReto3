@@ -1,5 +1,6 @@
 package com.project.ciclo3.reto3.rest;
 
+import com.project.ciclo3.reto3.modelo.Category;
 import com.project.ciclo3.reto3.modelo.Client;
 import com.project.ciclo3.reto3.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,18 @@ public class ClientRest {
     @ResponseStatus(HttpStatus.CREATED)
     public Client saveClient(@RequestBody Client client){
         return clientService.saveClient(client);
+    }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Client updateCabin(@RequestBody Client client){
+        return clientService.updateClient(client);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean deleteCabin(@PathVariable("id")int id){
+        return clientService.deleteClient(id);
     }
 
 }

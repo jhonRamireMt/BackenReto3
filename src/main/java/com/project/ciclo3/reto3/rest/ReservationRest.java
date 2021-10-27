@@ -1,5 +1,8 @@
 package com.project.ciclo3.reto3.rest;
 
+import com.project.ciclo3.reto3.custom.CountClients;
+import com.project.ciclo3.reto3.custom.DescriptionAmount;
+import com.project.ciclo3.reto3.modelo.Message;
 import com.project.ciclo3.reto3.modelo.Reservation;
 import com.project.ciclo3.reto3.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +34,32 @@ public class ReservationRest {
     @ResponseStatus(HttpStatus.CREATED)
     public Reservation saveReservation(@RequestBody Reservation reservation){
         return reservationService.saveReservation(reservation);
+    }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Reservation updateCabin(@RequestBody Reservation reservation){
+        return reservationService.updateReservation(reservation);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean deleteCabin(@PathVariable("id")int id){
+        return reservationService.deleteReservation(id);
+    }
+
+    @GetMapping("/report-status")
+    public DescriptionAmount getPapeleriaDescritionStatus(){
+        return reservationService.getStatusReport();
+    }
+    @GetMapping("/report-clients")
+    public List<CountClients> getCountClients(){
+        return reservationService.getTopCategorias();
+    }
+
+    @GetMapping("/report-dates/{dateOne}/{dateTwo}")
+    public List<Reservation> getDatesReport(@PathVariable("dateOne")String d1, @PathVariable("dateTwo")String d2){
+        return reservationService.getReservationPeriod(d1,d2);
     }
 
 

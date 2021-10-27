@@ -1,5 +1,6 @@
 package com.project.ciclo3.reto3.repositorio;
 
+import com.project.ciclo3.reto3.modelo.Category;
 import com.project.ciclo3.reto3.modelo.Client;
 import com.project.ciclo3.reto3.repositorio.crud.ClientCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,13 @@ public class ClientRepository {
 
     public Client guardarCliente(Client cliente){
         return clientCrudRepository.save(cliente);
+    }
 
+    public Client actualizarCategory(Client client){
+        return  clientCrudRepository.save(client);
+    }
+
+    public void delete(Client client){
+        clientCrudRepository.delete(client);
     }
 }

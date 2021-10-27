@@ -1,5 +1,6 @@
 package com.project.ciclo3.reto3.rest;
 
+import com.project.ciclo3.reto3.modelo.Client;
 import com.project.ciclo3.reto3.modelo.Message;
 import com.project.ciclo3.reto3.service.MensajeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,18 @@ public class MensajeRest {
     @ResponseStatus(HttpStatus.CREATED)
     public Message saveMessage(@RequestBody Message mensaje){
         return mensajeService.saveMessage(mensaje);
+    }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Message updateCabin(@RequestBody Message message){
+        return mensajeService.updateMessage(message);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean deleteCabin(@PathVariable("id")int id){
+        return mensajeService.deleteMessage(id);
     }
 
 }

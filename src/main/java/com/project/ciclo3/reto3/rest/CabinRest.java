@@ -32,4 +32,17 @@ public class CabinRest {
     public Cabin save(@RequestBody Cabin cabin){
         return cabinService.saveCabin(cabin);
     }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public Cabin updateCabin(@RequestBody Cabin cabin){
+        return cabinService.updateCabin(cabin);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean deleteCabin(@PathVariable("id")int id){
+       return cabinService.deleteCabin(id);
+    }
+
 }

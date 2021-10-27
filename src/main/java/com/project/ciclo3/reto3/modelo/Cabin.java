@@ -15,9 +15,16 @@ public class Cabin implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String brand;
-    private Integer rooms;
+
+    @Column(length = 45)
     private String name;
+
+    @Column(length = 45)
+    private String brand;
+
+    private Integer rooms;
+
+    @Column(length = 250)
     private String description;
 
    @ManyToOne

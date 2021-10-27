@@ -15,15 +15,19 @@ public class Message implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idMessage;
-    private String messageText;
 
-    @ManyToOne
-    @JoinColumn(name="clientId")
-    @JsonIgnoreProperties({"messages","reservations"})
-    private Client client;
+    @Column(length = 250)
+    private String messageText;
 
     @ManyToOne
     @JoinColumn(name="cabinId")
     @JsonIgnoreProperties({"messages","reservations"})
     private Cabin cabin;
+        
+    @ManyToOne
+    @JoinColumn(name="clientId")
+    @JsonIgnoreProperties({"messages","reservations"})
+    private Client client;
+
+
 }
