@@ -1,6 +1,5 @@
 package com.project.ciclo3.reto3.rest;
 
-import com.project.ciclo3.reto3.modelo.Cabin;
 import com.project.ciclo3.reto3.modelo.Category;
 import com.project.ciclo3.reto3.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,18 +31,6 @@ public class CategoryRest {
     @ResponseStatus(HttpStatus.CREATED)
     public Category saveCategory(@RequestBody Category category){
         return categoryService.saveCategory(category);
-    }
-
-    @PutMapping("/update")
-    @ResponseStatus(HttpStatus.CREATED)
-    public Category updateCabin(@RequestBody Category category){
-        return categoryService.updateCategory(category);
-    }
-
-    @DeleteMapping("/{id}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean deleteCabin(@PathVariable("id")int id){
-        return categoryService.deleteCategory(id);
     }
 
 }

@@ -35,14 +35,14 @@ public class CabinRest {
 
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Cabin updateCabin(@RequestBody Cabin cabin){
+    public Cabin updateCabin(Cabin cabin){
         return cabinService.updateCabin(cabin);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean deleteCabin(@PathVariable("id")int id){
-       return cabinService.deleteCabin(id);
+    public void deleteCabin(int id){
+        cabinService.deleteCabin(id);
     }
 
 }

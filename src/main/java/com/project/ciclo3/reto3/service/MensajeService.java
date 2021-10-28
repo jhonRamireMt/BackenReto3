@@ -34,29 +34,4 @@ public class MensajeService {
             }
         }
     }
-
-    public Message updateMessage(Message message){
-        if(message.getIdMessage()!=null){
-            Optional<Message> aux= mensajeRepository.obtenerMensajeById(message.getIdMessage());
-            if(!aux.isEmpty()){
-                if(message.getMessageText()!=null){
-                    aux.get().setMessageText(message.getMessageText());
-                }
-                mensajeRepository.guardarMensaje(aux.get());
-                return aux.get();
-            }else{
-                return message;
-            }
-        }else{
-            return message;
-        }
-    }
-
-    public boolean deleteMessage(int id) {
-        Boolean aux = getMessageById(id).map(message -> {
-            mensajeRepository.delete(message);
-            return true;
-        }).orElse(false);
-        return aux;
-    }
 }

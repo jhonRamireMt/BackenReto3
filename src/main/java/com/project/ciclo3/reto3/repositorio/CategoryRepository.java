@@ -1,6 +1,5 @@
 package com.project.ciclo3.reto3.repositorio;
 
-import com.project.ciclo3.reto3.modelo.Cabin;
 import com.project.ciclo3.reto3.modelo.Category;
 import com.project.ciclo3.reto3.repositorio.crud.CategoryCrudRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +30,7 @@ public class CategoryRepository {
         return  categoryCrudRepository.save(category);
     }
 
-    public void delete(Category category){
+    public void borrarCategory(Category category){
         categoryCrudRepository.delete(category);
     }
 }
