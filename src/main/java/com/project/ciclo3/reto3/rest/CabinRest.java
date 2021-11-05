@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+
 @RestController
 @RequestMapping("/api/Cabin")
 @CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.PUT,RequestMethod.DELETE})
@@ -35,14 +36,15 @@ public class CabinRest {
 
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Cabin updateCabin(Cabin cabin){
+    public Cabin updateCabin(@RequestBody Cabin cabin){
         return cabinService.updateCabin(cabin);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void deleteCabin(int id){
-        cabinService.deleteCabin(id);
+    public boolean deleteCabin(@PathVariable("id")int id){
+       return cabinService.deleteCabin(id);
     }
+
 
 }

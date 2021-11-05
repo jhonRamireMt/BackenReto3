@@ -33,7 +33,7 @@ public class MensajeRepository {
         return  mensajeCrudRepository.save(message);
     }
 
-    public void borrarCategory(Message message){
+    public void delete(Message message){
         mensajeCrudRepository.delete(message);
     }
 }

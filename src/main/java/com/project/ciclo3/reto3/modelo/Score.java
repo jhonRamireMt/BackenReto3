@@ -16,6 +16,7 @@ import java.io.Serializable;
 public class Score implements Serializable {
 
     @Id
-    private int score;
+    private Integer idScore;
+    private Integer score;
 
 }

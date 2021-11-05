@@ -31,7 +31,7 @@ public class ClientRepository {
         return  clientCrudRepository.save(client);
     }
 
-    public void borrarCategory(Client client){
+    public void delete(Client client){
         clientCrudRepository.delete(client);
     }
 }

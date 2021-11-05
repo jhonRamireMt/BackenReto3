@@ -17,10 +17,10 @@ public class Reservation implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idReservation;
 
-    @Temporal(TemporalType.TIMESTAMP)
+    //@Temporal(TemporalType.TIMESTAMP)
     private Date startDate;
 
-    @Temporal(TemporalType.TIMESTAMP)
+    //@Temporal(TemporalType.TIMESTAMP)
     private Date devolutionDate;
     private String status="created";
 
@@ -38,14 +38,14 @@ public class Reservation implements Serializable {
     @JoinColumn(name="calificacion")
     private Score score;
 
-    @PrePersist
-    public void prePesit(){
-        this.startDate = new Date();
-    }
+    //@PrePersist
+    //public void prePesit(){
+    //  this.startDate = new Date();
+    //}
 
-    @PreRemove
-    public void preUpdate(){
-        this.devolutionDate = new Date();
-    }
+    //@PreRemove
+    //public void preUpdate(){
+    //  this.devolutionDate = new Date();
+    //}
 
 }
